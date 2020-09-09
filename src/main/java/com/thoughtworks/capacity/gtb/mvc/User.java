@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class User {
 
-    @NotNull(message = "id must not be null")
     private Integer id;
     @NotNull(message = "username must not be null")
     @Pattern(regexp = "[A-Za-z_0-9]{3,10}$")

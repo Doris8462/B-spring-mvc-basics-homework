@@ -9,7 +9,9 @@ import java.util.Map;
 
 @Service
 public class UserService {
-    private Map<Integer, User> userMap = new HashMap<>();
+  private Map<Integer, User> userMap = new HashMap<>();
+    private static Integer curId = 1;
+
     public UserService() {
         userMap.put(1, new User(1, "Tom", "12345", "tom@qq.com"));
     }
@@ -18,10 +20,8 @@ public class UserService {
     }
 
     public void addUser(User user) {
-        userMap.put(user.getId(), user);
-    }
 
-    public User getUserById(Integer id) {
-        return userMap.get(id);
+        user.setId(curId++);
+        userMap.put(user.getId(),user);
     }
 }

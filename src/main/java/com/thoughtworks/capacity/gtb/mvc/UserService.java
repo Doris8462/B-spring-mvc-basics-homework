@@ -10,7 +10,6 @@ import java.util.Map;
 @Service
 public class UserService {
   private Map<String, User> userMap = new HashMap<>();
-    private static Integer curId = 1;
 
     public UserService() {
         userMap.put("Tom", new User(1, "Tom", "12345", "tom@qq.com"));
@@ -19,9 +18,14 @@ public class UserService {
         return new ArrayList<>(userMap.values());
     }
 
-    public void addUser(User user) {
-        user.setId(curId++);
-        userMap.put(user.getUsername(),user);
+    public void addUser(User user) throws UserAlreadyExistsException {
+        if(userMap.containsKey(user.getUsername())) {
+            throw new UserAlreadyExistsException("用户已存在");
+        }
+        else {
+            user.setId(userMap.size());
+            userMap.put(user.getUsername(), user);
+        }
     }
 
     public User login(User user) {

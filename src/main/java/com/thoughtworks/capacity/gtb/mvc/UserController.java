@@ -18,7 +18,7 @@ public class UserController {
 
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
-    public void registerUser(@RequestBody @Valid User user){
+    public void registerUser(@RequestBody @Valid User user) throws UserAlreadyExistsException {
         userService.addUser(user);
     }
 

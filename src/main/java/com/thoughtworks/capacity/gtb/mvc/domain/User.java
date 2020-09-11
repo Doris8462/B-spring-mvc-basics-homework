@@ -1,4 +1,4 @@
-package com.thoughtworks.capacity.gtb.mvc;
+package com.thoughtworks.capacity.gtb.mvc.domain;
 import javax.validation.constraints.*;
 
 import lombok.AllArgsConstructor;
@@ -12,7 +12,7 @@ public class User {
 
     private Integer id;
     @NotNull(message = "用户名不为空")
-    @Pattern(message ="用户名不合法", regexp = "[A-Za-z_0-9]{3,10}$")
+    @Pattern(message ="用户名不合法", regexp = "^[A-Za-z_0-9]{3,10}$")
     private String username;
     @NotNull(message = "密码是不为空")
     @Size(message ="密码不合法", max=12,min=5)

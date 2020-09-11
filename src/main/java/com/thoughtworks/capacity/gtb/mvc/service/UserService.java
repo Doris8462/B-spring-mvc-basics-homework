@@ -1,5 +1,8 @@
-package com.thoughtworks.capacity.gtb.mvc;
+package com.thoughtworks.capacity.gtb.mvc.service;
 
+import com.thoughtworks.capacity.gtb.mvc.exception.UserNotFoundException;
+import com.thoughtworks.capacity.gtb.mvc.domain.User;
+import com.thoughtworks.capacity.gtb.mvc.exception.UserAlreadyExistsException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
